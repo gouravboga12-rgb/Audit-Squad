@@ -60,10 +60,10 @@ const ContactSection = () => {
       <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -mr-48 -mt-48"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -ml-48 -mb-48"></div>
 
-      <div className="max-w-custom mx-auto px-4 sm:px-6 grid lg:grid-cols-3 gap-10 lg:gap-16 items-start relative z-10">
+      <div className="max-w-custom mx-auto px-5 md:px-8 lg:px-12 grid lg:grid-cols-3 gap-10 lg:gap-16 items-start relative z-10">
         {/* Contact Information */}
         <div className="lg:col-span-1 space-y-10">
-          <div data-aos="fade-right">
+          <div>
             <h2 className="text-2xl lg:text-4xl font-bold text-primary mb-5">Let's Talk <span className="text-gradient">Audit</span></h2>
             <p className="text-base lg:text-lg text-text-secondary leading-relaxed">
               Have questions about our methodology or need a custom quote? Reach out to our experts today.
@@ -76,8 +76,6 @@ const ContactSection = () => {
                 key={index} 
                 href={detail.link} 
                 className="flex items-center gap-6 p-6 bg-white rounded-2xl shadow-soft hover:shadow-xl transition-all border border-gray-100 group"
-                data-aos="fade-right"
-                data-aos-delay={index * 100}
               >
                 <div className="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent transition-colors">
                   {React.cloneElement(detail.icon, { className: "text-accent group-hover:text-white" })}
@@ -104,7 +102,7 @@ const ContactSection = () => {
         </div>
 
         {/* Contact Form / Lead Gen */}
-        <div className="lg:col-span-2" data-aos="fade-left">
+        <div className="lg:col-span-2">
           <div className="bg-white p-5 md:p-8 lg:p-12 rounded-[2rem] lg:rounded-[3rem] shadow-2xl border border-gray-100 relative overflow-hidden w-full">
             <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full -mr-16 -mt-16"></div>
             
