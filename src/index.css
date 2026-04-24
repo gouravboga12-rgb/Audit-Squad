@@ -17,12 +17,16 @@
 }
 
 @layer base {
+  html, body {
+    @apply w-full max-w-[100vw] overflow-x-hidden;
+  }
+
   body {
-    @apply text-text-primary bg-background font-['Plus_Jakarta_Sans',sans-serif] antialiased overflow-x-hidden text-sm md:text-base;
+    @apply text-text-primary bg-background font-['Plus_Jakarta_Sans',sans-serif] antialiased text-sm md:text-base;
   }
   
   #root {
-    @apply overflow-x-hidden;
+    @apply w-full max-w-[100vw] overflow-x-hidden flex flex-col min-h-screen;
   }
   
   h1, h2, h3, h4, h5, h6 {
