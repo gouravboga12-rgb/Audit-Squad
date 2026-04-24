@@ -8,10 +8,10 @@ import AboutOverview from '../components/sections/AboutOverview';
 import VisionMission from '../components/sections/VisionMission';
 import CoreValues from '../components/sections/CoreValues';
 import HowItWorks from '../components/sections/HowItWorks';
-import FounderSection from '../components/sections/FounderSection';
 import ServicesDetailed from '../components/sections/ServicesDetailed';
 import ContactSection from '../components/sections/ContactSection';
 import MapSection from '../components/sections/MapSection';
+import CareersOverview from '../components/sections/CareersOverview';
 
 const Home = () => {
   const whatsappNumber = "917995147799";
@@ -146,52 +146,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Our Clients Showcase - High visibility position */}
-      <section className="py-10 lg:py-16 bg-white border-b border-gray-100">
-        <div className="max-w-custom px-6">
-          <div className="flex flex-col sm:flex-row items-center justify-between mb-8 lg:mb-12 gap-4" data-aos="fade-up">
-            <div>
-              <p className="text-accent font-bold uppercase tracking-widest text-xs mb-1">Our Partners</p>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary">
-                Empowering <span className="text-gradient">Industry Leaders</span>
-              </h2>
-            </div>
-            <div className="flex items-center gap-4 shrink-0">
-              <div className="hidden sm:flex items-center gap-2 px-4 py-2 bg-background-alt rounded-xl border border-gray-100">
-                <Users className="text-accent" size={18} />
-                <span className="font-bold text-sm text-primary">10+ Clients</span>
-              </div>
-              <Link
-                to="/clients"
-                className="btn-primary py-2 px-5 text-sm flex items-center gap-2"
-              >
-                View All Clients
-              </Link>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-5 gap-4 lg:gap-6" data-aos="fade-up" data-aos-delay="100">
-            {homeClients.map((client, index) => (
-              <div
-                key={index}
-                className="card-premium group flex flex-col items-center justify-center p-4 lg:p-6 hover:border-accent/30 transition-all duration-300"
-                data-aos-delay={index * 10}
-              >
-                <div className="h-12 lg:h-16 w-full flex items-center justify-center mb-3 transition-transform duration-500 group-hover:scale-110">
-                  <img
-                    src={client.image}
-                    alt={client.name}
-                    className="max-h-full max-w-full object-contain"
-                  />
-                </div>
-                <p className="text-[9px] lg:text-[10px] font-bold text-primary text-center group-hover:text-accent transition-colors uppercase tracking-widest leading-tight">
-                  {client.name}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Why Choose Us */}
       <section className="section-padding bg-primary text-white relative overflow-hidden">
@@ -259,8 +213,57 @@ const Home = () => {
       {/* How It Works (Timeline from About Page) */}
       <HowItWorks />
 
-      {/* Founder Section (from About Page) */}
-      <FounderSection />
+      {/* Careers Overview Section */}
+      <CareersOverview />
+
+      {/* Our Clients Scrolling Marquee */}
+      <section className="py-16 lg:py-24 bg-white overflow-hidden">
+        <div className="max-w-custom px-6 mb-12">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6" data-aos="fade-up">
+            <div>
+              <p className="text-accent font-bold uppercase tracking-widest text-xs mb-2">Our Partners</p>
+              <h2 className="text-3xl lg:text-4xl font-bold text-primary">
+                Empowering <span className="text-gradient">Industry Leaders</span>
+              </h2>
+            </div>
+            <Link
+              to="/clients"
+              className="btn-primary py-3 px-8 text-sm flex items-center gap-2 group"
+            >
+              View Case Studies
+              <Award size={18} className="group-hover:rotate-12 transition-transform" />
+            </Link>
+          </div>
+        </div>
+
+        <div className="relative">
+          {/* Gradient Masks for smooth entry/exit */}
+          <div className="absolute inset-y-0 left-0 w-20 lg:w-40 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute inset-y-0 right-0 w-20 lg:w-40 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+          
+          <div className="flex overflow-hidden group">
+            <div className="animate-scroll flex gap-8 lg:gap-12 py-4">
+              {[...homeClients, ...homeClients].map((client, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col items-center justify-center min-w-[140px] md:min-w-[180px] lg:min-w-[220px] p-6 lg:p-8 rounded-2xl bg-background-alt border border-gray-100 hover:border-accent/30 transition-all duration-300"
+                >
+                  <div className="h-12 lg:h-16 w-full flex items-center justify-center mb-3">
+                    <img
+                      src={client.image}
+                      alt={client.name}
+                      className="max-h-full max-w-full object-contain transition-all duration-500"
+                    />
+                  </div>
+                  <p className="text-[10px] lg:text-xs font-bold text-primary/60 text-center uppercase tracking-widest leading-tight">
+                    {client.name}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Contact Section (from Contact Page) */}
       <div id="contact-section">

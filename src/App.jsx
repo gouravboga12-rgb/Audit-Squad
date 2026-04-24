@@ -13,6 +13,7 @@ import Services from './pages/Services';
 import Contact from './pages/Contact';
 import WhyUs from './pages/WhyUs';
 import Clients from './pages/Clients';
+import Careers from './pages/Careers';
 
 // Scroll and AOS Refresh handler
 const PageWrapper = ({ children }) => {
@@ -49,6 +50,7 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/why-us" element={<WhyUs />} />
               <Route path="/clients" element={<Clients />} />
+              <Route path="/careers" element={<Careers />} />
             </Routes>
           </main>
           <Footer />

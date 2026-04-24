@@ -5,7 +5,7 @@ import AboutOverview from '../components/sections/AboutOverview';
 import VisionMission from '../components/sections/VisionMission';
 import CoreValues from '../components/sections/CoreValues';
 import HowItWorks from '../components/sections/HowItWorks';
-import FounderSection from '../components/sections/FounderSection';
+
 
 const About = () => {
   return (
@@ -36,8 +36,6 @@ const About = () => {
       {/* Company Overview */}
       <AboutOverview />
 
-      {/* Founder Section */}
-      <FounderSection />
 
       {/* Vision & Mission */}
       <VisionMission />
