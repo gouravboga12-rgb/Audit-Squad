@@ -60,7 +60,7 @@ const ContactSection = () => {
       <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -mr-48 -mt-48"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -ml-48 -mb-48"></div>
 
-      <div className="max-w-custom mx-auto grid lg:grid-cols-3 gap-10 lg:gap-16 items-start relative z-10">
+      <div className="max-w-custom mx-auto px-4 sm:px-6 grid lg:grid-cols-3 gap-10 lg:gap-16 items-start relative z-10">
         {/* Contact Information */}
         <div className="lg:col-span-1 space-y-10">
           <div data-aos="fade-right">
