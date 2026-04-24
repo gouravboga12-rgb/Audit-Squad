@@ -22,6 +22,7 @@ const Navbar = () => {
     { name: 'About', path: '/about' },
     { name: 'Services', path: '/services' },
     { name: 'Why Us', path: '/why-us' },
+    { name: 'Our Clients', path: '/clients' },
     { name: 'Contact', path: '/contact' },
   ];
 
@@ -29,37 +30,48 @@ const Navbar = () => {
   const defaultMessage = encodeURIComponent("Hello, I am interested in your audit services. Please share more details.");
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${defaultMessage}`;
 
-  const isHomePage = location.pathname === '/';
-  const textColor = isScrolled ? 'text-primary' : (isHomePage ? 'text-primary' : 'text-white');
+  const isHomePage = location.pathname === '/' || location.pathname === '';
+  const isClientsPage = location.pathname.toLowerCase().includes('clients');
+  const isLightPage = isHomePage || isClientsPage;
+  
+  // Text color logic:
+  // Use text-primary (dark) if:
+  // 1. We are on a light-themed page (Home or Clients)
+  // 2. The navbar has scrolled (glass-morphism background)
+  // 3. We are on ANY other internal page (which now have white backgrounds)
+  const shouldShowDarkText = isScrolled || !isHomePage || isClientsPage;
+  const textColor = shouldShowDarkText ? 'text-primary' : (isLightPage ? 'text-primary' : 'text-white');
 
   return (
     <nav 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
         isScrolled 
           ? 'glass-morphism shadow-premium py-2 lg:py-3' 
-          : 'bg-transparent py-4 lg:py-6'
+          : !isHomePage 
+            ? 'bg-white/90 backdrop-blur-md py-3 lg:py-4 shadow-sm' 
+            : 'bg-transparent py-4 lg:py-6'
       }`}
     >
-      <div className="max-w-custom px-4 lg:px-6 flex justify-between items-center">
+      <div className="w-full px-5 md:px-8 lg:px-12 flex items-center justify-between mx-auto max-w-7xl">
         {/* Logo Section */}
-        <Link to="/" className="flex items-center gap-2 lg:gap-3 group">
-          <div className="relative">
+        <Link to="/" className="flex items-center gap-2 md:gap-3 group flex-shrink-0">
+          <div className="relative shrink-0">
             <div className="absolute -inset-1 bg-accent/30 rounded-xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
-            <img src={logo} alt="Audit Squad Logo" className="relative h-9 lg:h-12 w-auto object-contain rounded-lg lg:rounded-xl bg-white shadow-sm border border-gray-100" />
+            <img src={logo} alt="Audit Squad Logo" className="relative h-8 md:h-10 w-auto object-contain rounded-lg bg-white shadow-sm border border-gray-100" />
           </div>
-          <span className={`font-black text-lg lg:text-2xl tracking-tighter transition-colors ${textColor}`}>
+          <span className={`font-black text-base md:text-lg lg:text-2xl transition-colors ${textColor} whitespace-nowrap`}>
             AUDIT<span className="text-accent group-hover:text-primary transition-colors">SQUAD</span>
           </span>
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8 lg:gap-10">
-          <div className="flex items-center gap-6 lg:gap-8">
+        <div className="hidden lg:flex items-center gap-6 xl:gap-10">
+          <div className="flex items-center gap-4 xl:gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
-                className={`font-bold text-xs lg:text-sm uppercase tracking-widest transition-all duration-300 relative py-2 group ${
+                className={`font-bold text-xs xl:text-sm uppercase tracking-widest transition-all duration-300 relative py-2 group ${
                   location.pathname === link.path 
                     ? 'text-accent' 
                     : textColor
@@ -75,7 +87,7 @@ const Navbar = () => {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-whatsapp flex items-center gap-2 px-6 lg:px-8 py-2.5 lg:py-3 rounded-xl text-xs lg:text-sm shadow-lg hover:shadow-accent/20 transition-all"
+            className="btn-whatsapp flex items-center gap-2 px-5 xl:px-8 py-2 xl:py-3 rounded-xl text-xs xl:text-sm shadow-lg hover:shadow-accent/20 transition-all shrink-0"
           >
             <MessageCircle size={16} />
             WhatsApp
@@ -84,12 +96,10 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className={`md:hidden p-2 rounded-lg transition-colors ${
-            isScrolled 
-              ? 'bg-primary/10 text-primary' 
-              : isHomePage 
-                ? 'bg-primary/10 text-primary' 
-                : 'bg-white/15 text-white'
+          className={`lg:hidden p-2 rounded-lg transition-colors border ${
+            (shouldShowDarkText || isLightPage)
+              ? 'bg-primary/5 text-primary border-primary/10' 
+              : 'bg-white/10 text-white border-white/20'
           }`}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
@@ -99,7 +109,7 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden glass-morphism absolute top-[calc(100%-0.5rem)] left-4 right-4 p-5 flex flex-col gap-1 animate-fade-in rounded-2xl shadow-premium border border-white/20">
+        <div className="lg:hidden glass-morphism absolute top-[calc(100%-0.5rem)] left-4 right-4 p-5 flex flex-col gap-1 animate-fade-in rounded-2xl shadow-premium border border-white/20">
           {navLinks.map((link) => (
             <Link
               key={link.name}

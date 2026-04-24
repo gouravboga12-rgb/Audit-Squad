@@ -91,8 +91,19 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="max-w-custom mt-16 pt-8 border-t border-gray-800 text-center text-gray-500 text-[10px] lg:text-xs">
+      <div className="max-w-custom mt-16 pt-8 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-gray-500 text-[10px] lg:text-xs">
         <p>&copy; {currentYear} Invtrack Analytics and Solutions Private Limited. All rights reserved.</p>
+        <p>
+          Developed by{" "}
+          <a
+            href="https://codtechitsolutions.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent font-bold hover:text-white transition-colors underline underline-offset-2"
+          >
+            CODTECH IT SOLUTION
+          </a>
+        </p>
       </div>
     </footer>
   );

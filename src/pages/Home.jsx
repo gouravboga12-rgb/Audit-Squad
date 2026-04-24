@@ -1,5 +1,6 @@
-import React from 'react';
-import { MessageCircle, CheckCircle2 } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { MessageCircle, CheckCircle2, Users, Award } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import heroImg from '../assets/hero_audit.png';
 
 // Import Sections
@@ -24,6 +25,47 @@ const Home = () => {
     "Fast turnaround"
   ];
 
+  const homeClients = [
+    { name: "The Souled Store", image: "/assets/clients/souled_store.png" },
+    { name: "PIAGGIO", image: "/assets/clients/piaggio.png" },
+    { name: "BAJAJ", image: "/assets/clients/bajaj.png" },
+    { name: "Royal Enfield", image: "/assets/clients/royal_enfield.png" },
+    { name: "YAMAHA", image: "/assets/clients/yamaha.png" },
+    { name: "HONDA", image: "/assets/clients/honda.png" },
+    { name: "UK MULTI CROP", image: "/assets/clients/uk_multi_crop.png" },
+    { name: "SUPERKICKS", image: "/assets/clients/superkicks.png" },
+    { name: "Soch", image: "/assets/clients/soch.png" },
+    { name: "Suzuki", image: "/assets/clients/suzuki.png" },
+  ];
+
+  // Typewriter effect state
+  const twPart1 = "Simplifying Inventory Audits with ";
+  const twPart2 = "Accuracy & Automation";
+  const twFull = twPart1 + twPart2;
+  const [typedCount, setTypedCount] = useState(0);
+  const [showCursor, setShowCursor] = useState(true);
+  const [animsReady, setAnimsReady] = useState(false);
+
+  useEffect(() => {
+    // Small initial delay before typing starts
+    const startDelay = setTimeout(() => {
+      const interval = setInterval(() => {
+        setTypedCount(prev => {
+          if (prev >= twFull.length) {
+            clearInterval(interval);
+            // Hide cursor then reveal tagline + buttons
+            setTimeout(() => setShowCursor(false), 600);
+            setTimeout(() => setAnimsReady(true), 700);
+            return prev;
+          }
+          return prev + 1;
+        });
+      }, 45);
+      return () => clearInterval(interval);
+    }, 300);
+    return () => clearTimeout(startDelay);
+  }, []);
+
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
@@ -32,34 +74,121 @@ const Home = () => {
           <img src={heroImg} alt="Hero" className="w-full h-full object-cover opacity-10" />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent"></div>
         </div>
-        
-        <div className="max-w-custom px-6 relative z-10 grid lg:grid-cols-2 gap-10 items-center">
-          <div data-aos="fade-right">
-            <h1 className="text-4xl lg:text-6xl font-bold text-primary mb-5 lg:mb-6 leading-tight">
-              Simplifying Inventory Audits with <span className="text-gradient">Accuracy & Automation</span>
+
+        <div className="max-w-custom px-6 relative z-10 grid md:grid-cols-2 gap-8 lg:gap-12 items-center py-8 lg:py-12">
+          <div>
+            {/* Typewriter heading */}
+            <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-primary mb-5 lg:mb-6 leading-tight min-h-[1em]">
+              {typedCount <= twPart1.length
+                ? twPart1.slice(0, typedCount)
+                : twPart1}
+              {typedCount > twPart1.length && (
+                <span className="text-gradient">
+                  {twPart2.slice(0, typedCount - twPart1.length)}
+                </span>
+              )}
+              {showCursor && (
+                <span className="animate-cursor text-primary">&nbsp;</span>
+              )}
             </h1>
-            <p className="text-lg text-text-secondary mb-8 lg:mb-10 max-w-lg leading-relaxed">
-              We help businesses streamline inventory, asset tracking, and compliance with expert audit solutions and cutting-edge technology.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <a href={whatsappUrl} className="btn-primary flex items-center gap-2 group py-3 px-6">
-                <MessageCircle size={20} className="group-hover:rotate-12 transition-transform" />
+
+            {/* Tagline — fades up after typing completes */}
+            <div
+              className={`mb-8 lg:mb-10 ${animsReady ? 'animate-fade-slide-up' : 'opacity-0'}`}
+              style={{ animationDelay: '0.05s' }}
+            >
+              <p className="text-sm md:text-base lg:text-lg text-text-secondary leading-relaxed mb-4">
+                We help businesses streamline{" "}
+                <span className="font-bold text-primary bg-accent/10 px-1.5 py-0.5 rounded-md">inventory</span>,{" "}
+                <span className="font-bold text-primary bg-accent/10 px-1.5 py-0.5 rounded-md">asset tracking</span>, and{" "}
+                <span className="font-bold text-primary bg-accent/10 px-1.5 py-0.5 rounded-md">compliance</span>{" "}
+                with expert audit solutions and cutting-edge technology.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {["Inventory Audit", "Asset Tracking", "Compliance"].map((tag) => (
+                  <span key={tag} className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-primary/5 text-primary border border-primary/10">
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent inline-block"></span>
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Buttons — pop up one after another */}
+            <div className="flex flex-wrap gap-3 lg:gap-4">
+              <a
+                href={whatsappUrl}
+                className={`btn-primary flex items-center gap-2 group py-2.5 px-5 lg:py-3 lg:px-6 text-sm lg:text-base ${animsReady ? 'animate-pop-up' : 'opacity-0'}`}
+                style={{ animationDelay: '0.1s' }}
+              >
+                <MessageCircle size={18} className="group-hover:rotate-12 transition-transform" />
                 Chat on WhatsApp
               </a>
-              <a href="tel:7995147799" className="btn-secondary py-3 px-6">
+              <a
+                href="tel:7995147799"
+                className={`btn-secondary py-2.5 px-5 lg:py-3 lg:px-6 text-sm lg:text-base ${animsReady ? 'animate-pop-up' : 'opacity-0'}`}
+                style={{ animationDelay: '0.25s' }}
+              >
                 Call Now
               </a>
             </div>
           </div>
-          <div className="hidden lg:block" data-aos="zoom-in">
+          <div className="hidden md:block" data-aos="zoom-in">
             <div className="relative">
               <div className="absolute -inset-8 bg-accent/20 rounded-full blur-3xl animate-pulse"></div>
-              <img 
-                src={heroImg} 
-                alt="Audit in action" 
-                className="relative rounded-[2rem] shadow-premium border-4 border-white transform rotate-2 hover:rotate-0 transition-transform duration-700 w-full" 
+              <img
+                src={heroImg}
+                alt="Audit in action"
+                className="relative rounded-[2rem] shadow-premium border-4 border-white transform rotate-2 hover:rotate-0 transition-transform duration-700 w-full"
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Clients Showcase - High visibility position */}
+      <section className="py-10 lg:py-16 bg-white border-b border-gray-100">
+        <div className="max-w-custom px-6">
+          <div className="flex flex-col sm:flex-row items-center justify-between mb-8 lg:mb-12 gap-4" data-aos="fade-up">
+            <div>
+              <p className="text-accent font-bold uppercase tracking-widest text-xs mb-1">Our Partners</p>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary">
+                Empowering <span className="text-gradient">Industry Leaders</span>
+              </h2>
+            </div>
+            <div className="flex items-center gap-4 shrink-0">
+              <div className="hidden sm:flex items-center gap-2 px-4 py-2 bg-background-alt rounded-xl border border-gray-100">
+                <Users className="text-accent" size={18} />
+                <span className="font-bold text-sm text-primary">10+ Clients</span>
+              </div>
+              <Link
+                to="/clients"
+                className="btn-primary py-2 px-5 text-sm flex items-center gap-2"
+              >
+                View All Clients
+              </Link>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-5 gap-4 lg:gap-6" data-aos="fade-up" data-aos-delay="100">
+            {homeClients.map((client, index) => (
+              <div
+                key={index}
+                className="card-premium group flex flex-col items-center justify-center p-4 lg:p-6 hover:border-accent/30 transition-all duration-300"
+                data-aos-delay={index * 10}
+              >
+                <div className="h-12 lg:h-16 w-full flex items-center justify-center mb-3 transition-transform duration-500 group-hover:scale-110">
+                  <img
+                    src={client.image}
+                    alt={client.name}
+                    className="max-h-full max-w-full object-contain"
+                  />
+                </div>
+                <p className="text-[9px] lg:text-[10px] font-bold text-primary text-center group-hover:text-accent transition-colors uppercase tracking-widest leading-tight">
+                  {client.name}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -97,7 +226,7 @@ const Home = () => {
             </div>
             <div className="space-y-6 lg:space-y-8 pt-12 lg:pt-16">
               <div className="bg-white/10 backdrop-blur-sm p-8 lg:p-10 rounded-2xl text-center border border-white/10 hover:bg-white/20 transition-all">
-                <h4 className="text-3xl lg:text-5xl font-bold mb-2 text-white">100+</h4>
+                <h4 className="text-3xl lg:text-5xl font-bold mb-2 text-white">10+</h4>
                 <p className="text-[10px] lg:text-xs font-bold uppercase tracking-widest text-gray-400">Corporate Clients</p>
               </div>
               <div className="bg-secondary p-8 lg:p-10 rounded-2xl text-center shadow-xl transform hover:scale-105 transition-all">
@@ -146,7 +275,7 @@ const Home = () => {
         <div className="max-w-4xl mx-auto bg-gradient-to-r from-primary to-secondary p-10 lg:p-16 rounded-[2rem] text-center text-white shadow-2xl relative overflow-hidden" data-aos="flip-up">
           <div className="absolute top-0 right-0 w-48 h-48 bg-accent/20 rounded-full blur-3xl -mr-24 -mt-24"></div>
           <div className="absolute bottom-0 left-0 w-48 h-48 bg-secondary/30 rounded-full blur-3xl -ml-24 -mb-24"></div>
-          
+
           <h2 className="text-2xl lg:text-4xl font-bold mb-6 lg:mb-8 relative z-10">Get your audit done quickly and accurately</h2>
           <p className="text-lg text-white/80 mb-8 lg:mb-10 max-w-xl mx-auto relative z-10">Ready to transform your inventory management? Our experts are just a click away.</p>
           <div className="flex justify-center relative z-10">

@@ -78,25 +78,25 @@ const ServicesDetailed = () => {
                   alt={service.title} 
                   className="relative rounded-xl lg:rounded-2xl shadow-premium w-full h-[250px] md:h-[350px] lg:h-[450px] object-cover transition-transform duration-700 group-hover:scale-[1.02]" 
                 />
-                <div className="absolute top-5 left-5 lg:top-7 lg:left-7 w-12 h-12 lg:w-14 lg:h-14 bg-primary text-white rounded-lg lg:rounded-xl flex items-center justify-center shadow-premium border-2 border-white/20 group-hover:bg-accent transition-colors duration-500">
+                <div className="absolute top-4 left-4 lg:top-7 lg:left-7 w-10 h-10 lg:w-14 lg:h-14 bg-primary text-white rounded-lg lg:rounded-xl flex items-center justify-center shadow-premium border-2 border-white/20 group-hover:bg-accent transition-colors duration-500">
                   {React.cloneElement(service.icon, { size: 22 })}
                 </div>
               </div>
             </div>
             
             <div className="flex-1 w-full" data-aos={index % 2 === 0 ? "fade-left" : "fade-right"}>
-              <h4 className="text-accent font-bold uppercase tracking-widest text-[10px] lg:text-xs mb-2 lg:mb-3">Service {index + 1}</h4>
-              <h2 className="text-2xl lg:text-4xl font-bold text-primary mb-4 lg:mb-6 leading-tight">{service.title}</h2>
-              <p className="text-base lg:text-lg text-text-secondary leading-relaxed mb-6 lg:mb-8">
+              <h4 className="text-accent font-bold uppercase tracking-widest text-[9px] lg:text-xs mb-1 lg:mb-3">Service {index + 1}</h4>
+              <h2 className="text-lg lg:text-3xl font-bold text-primary mb-2 lg:mb-6 leading-tight">{service.title}</h2>
+              <p className="text-xs lg:text-base text-text-secondary leading-relaxed mb-4 lg:mb-8">
                 {service.desc}
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-4 mb-8 lg:mb-10">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 lg:gap-4 mb-6 lg:mb-10">
                 {service.features.map((feature, fIndex) => (
                   <div key={fIndex} className="flex items-center gap-2 lg:gap-3 group/item">
-                    <div className="w-7 h-7 lg:w-8 lg:h-8 rounded-lg bg-accent/10 flex items-center justify-center shrink-0 group-hover/item:bg-accent transition-colors duration-300">
-                      <CheckCircle2 className="text-accent group-hover/item:text-white" size={16} />
+                    <div className="w-7 h-7 rounded-lg bg-accent/10 flex items-center justify-center shrink-0 group-hover/item:bg-accent transition-colors duration-300">
+                      <CheckCircle2 className="text-accent group-hover/item:text-white" size={14} />
                     </div>
-                    <span className="text-text-primary font-bold text-sm lg:text-base">{feature}</span>
+                    <span className="text-text-primary font-bold text-xs lg:text-sm">{feature}</span>
                   </div>
                 ))}
               </div>
