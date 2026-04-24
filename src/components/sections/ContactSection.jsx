@@ -55,12 +55,12 @@ const ContactSection = () => {
   ];
 
   return (
-    <section className="section-padding bg-background relative overflow-hidden w-full">
+    <section className="py-16 lg:py-24 bg-background relative overflow-hidden w-full">
       {/* Decorative background elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -mr-48 -mt-48"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -ml-48 -mb-48"></div>
 
-      <div className="max-w-custom mx-auto px-5 md:px-8 lg:px-12 grid lg:grid-cols-3 gap-10 lg:gap-16 items-start relative z-10">
+      <div className="max-w-custom mx-auto px-6 md:px-10 lg:px-16 grid lg:grid-cols-3 gap-10 lg:gap-16 items-start relative z-10">
         {/* Contact Information */}
         <div className="lg:col-span-1 space-y-10">
           <div>
@@ -88,7 +88,7 @@ const ContactSection = () => {
             ))}
           </div>
 
-          <div className="p-8 bg-secondary/5 rounded-3xl border border-secondary/20" data-aos="fade-up">
+          <div className="p-8 bg-secondary/5 rounded-3xl border border-secondary/20">
             <h4 className="font-bold text-primary mb-4 flex items-center gap-2">
               <Clock className="text-secondary" size={20} />
               Business Hours
