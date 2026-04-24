@@ -55,7 +55,7 @@ const ContactSection = () => {
   ];
 
   return (
-    <section className="py-16 lg:py-24 px-6 md:px-10 lg:px-16 bg-background relative overflow-hidden">
+    <section className="section-padding bg-background relative overflow-hidden w-full">
       {/* Decorative background elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -mr-48 -mt-48"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -ml-48 -mb-48"></div>
@@ -105,7 +105,7 @@ const ContactSection = () => {
 
         {/* Contact Form / Lead Gen */}
         <div className="lg:col-span-2" data-aos="fade-left">
-          <div className="bg-white p-8 lg:p-12 rounded-[2rem] lg:rounded-[3rem] shadow-2xl border border-gray-100 relative overflow-hidden">
+          <div className="bg-white p-5 md:p-8 lg:p-12 rounded-[2rem] lg:rounded-[3rem] shadow-2xl border border-gray-100 relative overflow-hidden w-full">
             <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full -mr-16 -mt-16"></div>
             
             <div className="relative z-10">
@@ -188,13 +188,13 @@ const ContactSection = () => {
 
               <div className="mt-10 pt-8 border-t border-gray-100">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                  <p className="text-text-secondary font-medium">Or reach us instantly via:</p>
-                  <div className="flex gap-4">
-                    <a href={whatsappUrl} className="btn-whatsapp px-6 py-3">
+                  <p className="text-text-secondary font-medium text-center md:text-left">Or reach us instantly via:</p>
+                  <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+                    <a href={whatsappUrl} className="btn-whatsapp px-4 py-3 justify-center w-full sm:w-auto">
                       <MessageCircle size={20} />
                       WhatsApp
                     </a>
-                    <a href="tel:7995147799" className="btn-secondary px-6 py-3 border-accent text-accent hover:bg-accent">
+                    <a href="tel:7995147799" className="btn-secondary px-4 py-3 border-accent text-accent hover:bg-accent justify-center w-full sm:w-auto">
                       Call Now
                     </a>
                   </div>
