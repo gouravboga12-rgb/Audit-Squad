@@ -275,7 +275,7 @@ const Home = () => {
 
       {/* CTA Banner */}
       <section className="section-padding bg-accent/5">
-        <div className="max-w-4xl mx-auto bg-gradient-to-r from-primary to-secondary p-10 lg:p-16 rounded-[2rem] text-center text-white shadow-2xl relative overflow-hidden" data-aos="flip-up">
+        <div className="max-w-4xl mx-auto px-6 bg-gradient-to-r from-primary to-secondary p-10 lg:p-16 rounded-[2rem] text-center text-white shadow-2xl relative overflow-hidden" data-aos="flip-up">
           <div className="absolute top-0 right-0 w-48 h-48 bg-accent/20 rounded-full blur-3xl -mr-24 -mt-24"></div>
           <div className="absolute bottom-0 left-0 w-48 h-48 bg-secondary/30 rounded-full blur-3xl -ml-24 -mb-24"></div>
 

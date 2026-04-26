@@ -161,7 +161,7 @@ const Clients = () => {
 
       {/* CTA Section */}
       <section className="section-padding bg-accent/5">
-        <div className="max-w-4xl mx-auto bg-gradient-to-r from-primary to-secondary p-10 lg:p-16 rounded-[2rem] text-center text-white shadow-2xl relative overflow-hidden" data-aos="flip-up">
+        <div className="max-w-4xl mx-auto px-6 bg-gradient-to-r from-primary to-secondary p-10 lg:p-16 rounded-[2rem] text-center text-white shadow-2xl relative overflow-hidden" data-aos="flip-up">
           <h2 className="text-2xl lg:text-4xl font-bold mb-6 lg:mb-8 relative z-10">Join our growing list of success stories</h2>
           <p className="text-lg text-white/80 mb-8 lg:mb-10 max-w-xl mx-auto relative z-10">Partner with Audit Squad and experience the future of inventory management.</p>
           <div className="flex justify-center relative z-10">
