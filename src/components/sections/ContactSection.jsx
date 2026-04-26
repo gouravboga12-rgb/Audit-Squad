@@ -55,10 +55,12 @@ const ContactSection = () => {
   ];
 
   return (
-    <section className="py-16 lg:py-24 bg-background relative overflow-hidden w-full">
-      {/* Decorative background elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -mr-48 -mt-48"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -ml-48 -mb-48"></div>
+    <section className="py-16 lg:py-24 bg-background relative w-full">
+      {/* Decorative background elements - wrapped to prevent shadow clipping */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -mr-48 -mt-48"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -ml-48 -mb-48"></div>
+      </div>
 
       <div className="max-w-custom mx-auto px-6 md:px-10 lg:px-16 grid lg:grid-cols-3 gap-10 lg:gap-16 items-start relative z-10">
         {/* Contact Information */}
@@ -158,7 +160,7 @@ const ContactSection = () => {
                       className="w-full px-5 py-4 bg-background-alt border border-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all appearance-none"
                     >
                       <option>Inventory Audit</option>
-                      <option>Spare Parts Audit</option>
+
                       <option>Asset Tagging</option>
                       <option>Asset Verification</option>
                       <option>Other Services</option>

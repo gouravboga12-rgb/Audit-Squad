@@ -49,7 +49,7 @@ const Footer = () => {
           <ul className="space-y-3 lg:space-y-4">
             {[
               'Inventory Audit',
-              'Spare Parts Audit',
+
               'Asset Tagging',
               'Asset Verification'
             ].map((item) => (

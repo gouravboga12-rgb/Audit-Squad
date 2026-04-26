@@ -63,7 +63,7 @@ const HowItWorks = () => {
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-28" data-aos="fade-up">
           <h4 className="text-accent font-bold uppercase tracking-widest text-sm mb-4">Our Process</h4>
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">How <span className="text-gradient">It Works</span></h2>

@@ -4,7 +4,7 @@ import { Eye, Target } from 'lucide-react';
 const VisionMission = () => {
   return (
     <section className="section-padding bg-white">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
+      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12">
         <div className="bg-primary p-12 rounded-[2.5rem] text-white shadow-xl relative overflow-hidden" data-aos="fade-right">
           <div className="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-full -mr-16 -mt-16"></div>
           <Eye className="text-accent mb-6" size={48} />

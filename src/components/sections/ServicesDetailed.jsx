@@ -1,7 +1,7 @@
 import React from 'react';
 import { CheckCircle2, MessageCircle, BarChart3, Briefcase, Target, Shield } from 'lucide-react';
 import inventoryImg from '../../assets/inventory_audit.png';
-import spareImg from '../../assets/spare_parts_audit.png';
+
 import taggingImg from '../../assets/asset_tagging.png';
 import assetImg from '../../assets/asset_verification.png';
 
@@ -23,18 +23,7 @@ const ServicesDetailed = () => {
         "WIP & Raw Material Audit"
       ]
     },
-    {
-      title: "Spare Parts Audit Services",
-      desc: "Specialized auditing for automobile spare parts inventory systems. We understand the complexity of SKU-heavy environments and ensure zero-error reporting.",
-      image: spareImg,
-      icon: <Briefcase className="text-white" size={32} />,
-      features: [
-        "SKU-level Accuracy",
-        "Obsolete Stock Identification",
-        "Bin Location Verification",
-        "Cycle Counting Support"
-      ]
-    },
+
     {
       title: "Asset Tagging",
       desc: "Efficient tagging and tracking of business assets using barcodes, QR codes, or RFID. Protect your investments with professional asset management.",
@@ -67,7 +56,7 @@ const ServicesDetailed = () => {
       <div className="absolute top-1/4 left-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl -ml-40"></div>
       <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl -mr-40"></div>
  
-      <div className="max-w-custom space-y-16 lg:space-y-24 relative z-10">
+      <div className="max-w-custom px-6 space-y-16 lg:space-y-24 relative z-10">
         {services.map((service, index) => (
           <div key={index} className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 lg:gap-12 items-center`}>
             <div className="flex-1 w-full" data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}>

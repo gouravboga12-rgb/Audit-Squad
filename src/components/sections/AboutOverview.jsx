@@ -7,7 +7,7 @@ const AboutOverview = () => {
     <section className="section-padding bg-background relative overflow-hidden">
       <div className="absolute top-0 right-0 w-1/3 h-full bg-accent/5 transform skew-x-12 translate-x-20 hidden lg:block"></div>
       
-      <div className="max-w-custom grid lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
+      <div className="max-w-custom px-6 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
         <div data-aos="fade-right">
           <h4 className="text-accent font-bold uppercase tracking-widest text-[10px] lg:text-xs mb-3">Who We Are</h4>
           <h2 className="text-2xl lg:text-4xl font-bold text-primary mb-5 lg:mb-6 leading-tight">

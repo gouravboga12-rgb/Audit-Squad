@@ -65,7 +65,7 @@ const Clients = () => {
 
       {/* Clients Grid - Strategically moved to top for instant credibility */}
       <section className="section-padding bg-white">
-        <div className="max-w-custom">
+        <div className="max-w-custom px-6">
           <div className="text-center mb-16" data-aos="fade-up">
             <h2 className="text-3xl lg:text-5xl font-bold text-primary mb-4">Empowering <span className="text-gradient">Industry Leaders</span></h2>
             <p className="text-text-secondary text-lg max-w-2xl mx-auto">
@@ -97,33 +97,11 @@ const Clients = () => {
         </div>
       </section>
 
-      {/* Spare Part Audit Services Info */}
-      <section className="section-padding bg-background-alt">
-        <div className="max-w-4xl mx-auto text-center" data-aos="fade-up">
-          <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">Spare Part Audit Services</h2>
-          <div className="space-y-6">
-            <p className="text-lg text-text-secondary leading-relaxed max-w-3xl mx-auto">
-              Audit Squad blends automation with expert audit insights, ensuring that businesses don’t just check boxes—they gain a competitive advantage.
-            </p>
-            <p className="text-lg text-text-secondary leading-relaxed max-w-3xl mx-auto">
-              By making audits seamless and client‑friendly, we help organizations cut costs, improve reliability, and turn inventory management into a strategic asset.
-            </p>
-            
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
-              {features.map((feature, index) => (
-                <div key={index} className="flex items-center gap-3 p-4 bg-white rounded-2xl shadow-sm border border-gray-100 hover:border-accent/30 transition-all">
-                  <CheckCircle2 className="text-secondary shrink-0" size={20} />
-                  <span className="font-bold text-primary">{feature}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* Business Impact Section */}
       <section className="section-padding bg-white relative overflow-hidden">
-        <div className="max-w-custom">
+        <div className="max-w-custom px-6">
           <div className="text-center mb-12" data-aos="fade-up">
             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">Business Impact</h2>
             <p className="text-text-secondary text-lg">Measurable benefits and long-term value for our corporate partners.</p>
@@ -156,7 +134,7 @@ const Clients = () => {
           <div className="absolute bottom-[-10%] right-[-5%] w-[300px] h-[300px] border border-accent rounded-full animate-pulse"></div>
         </div>
 
-        <div className="max-w-4xl mx-auto text-center relative z-10" data-aos="fade-up">
+        <div className="max-w-4xl mx-auto px-6 text-center relative z-10" data-aos="fade-up">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 mb-8">
             <ShieldCheck className="text-accent" size={20} />
             <span className="text-sm font-bold uppercase tracking-widest text-accent">Authorized Brand</span>

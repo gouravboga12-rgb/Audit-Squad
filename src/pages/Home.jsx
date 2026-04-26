@@ -150,7 +150,7 @@ const Home = () => {
       {/* Why Choose Us */}
       <section className="section-padding bg-primary text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-accent/5 skew-x-12 transform translate-x-20"></div>
-        <div className="max-w-custom grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
+        <div className="max-w-custom px-6 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
           <div data-aos="fade-right">
             <h2 className="text-3xl lg:text-4xl font-bold mb-6 lg:mb-8">Why Businesses Trust <span className="text-accent">Audit Squad</span></h2>
             <div className="space-y-4 lg:space-y-5">

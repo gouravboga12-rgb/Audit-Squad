@@ -11,11 +11,11 @@ const CoreValues = () => {
 
   return (
     <section className="section-padding bg-background-alt">
-      <div className="max-w-custom text-center mb-10 lg:mb-12" data-aos="fade-up">
+      <div className="max-w-custom px-6 text-center mb-10 lg:mb-12" data-aos="fade-up">
         <h2 className="text-2xl lg:text-4xl font-bold text-primary mb-3">Our Core Values</h2>
         <p className="text-text-secondary text-sm lg:text-base">The principles that guide everything we do.</p>
       </div>
-      <div className="max-w-custom grid sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+      <div className="max-w-custom px-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
         {values.map((value, index) => (
           <div 
             key={index} 
