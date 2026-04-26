@@ -152,7 +152,7 @@ const Clients = () => {
             ].map((item, i) => (
               <div key={i} className="p-6 rounded-2xl bg-background-alt border border-gray-100 hover:border-accent/30 transition-all group shadow-sm hover:shadow-premium">
                 <div className="text-accent mb-3 flex justify-center group-hover:scale-110 transition-transform">{item.icon}</div>
-                <span className="text-sm font-bold uppercase tracking-widest text-text-secondary">{item.label}</span>
+                <span className="text-[10px] lg:text-sm font-bold uppercase tracking-wide lg:tracking-widest text-text-secondary">{item.label}</span>
               </div>
             ))}
           </div>
